@@ -7,7 +7,9 @@
       
       $("label", $(this)).each(function() {
         var label = $(this);
-        var input = $("#" + label.attr('for'));
+        var input = $("input[type='text']#" + label.attr('for'));
+        
+        if (!input[0]) { return; }
 
         var l_o = $.metadata ? $.extend({}, opts, label.metadata()) : opts;
         var i_o = $.metadata ? $.extend({}, opts, input.metadata()) : opts;
